@@ -134,13 +134,13 @@ public class PlayerController : MonoBehaviour
                 {
                     state = State.hurt;
                     //Enemy to my right, therefore I should be hurt and move left
-                    rb.velocity = new Vector2(-10, rb.velocity.y);
+                    rb.velocity = new Vector2(-hurtVelocity, rb.velocity.y);
                 }
                 else
                 {
                     state = State.hurt;
                     //Enemy to my left, therefore I should be hurt and move right
-                    rb.velocity = new Vector2(10, rb.velocity.y);
+                    rb.velocity = new Vector2(hurtVelocity, rb.velocity.y);
                 }
             }
             
