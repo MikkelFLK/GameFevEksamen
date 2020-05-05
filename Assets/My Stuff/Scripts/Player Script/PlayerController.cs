@@ -5,17 +5,17 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;
-    public float jumpForce;
-
     [SerializeField] private TextMeshProUGUI scoretext;
+    [SerializeField] private float hurtVelocity = 10f;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float jumpForce;
 
     private float movment;
     private Rigidbody2D rb;
     private Animator anima;
     private int score = 0;
     
-    private enum State { idle, running, jumping, falling};
+    private enum State { idle, running, jumping, falling, hurt};
     private State state = State.idle;
 
 
@@ -40,8 +40,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        Move();
+        if (state != State.hurt)
+        {
+            Move();
+        }
         StateManager();
         anima.SetInteger("State", (int)state); 
           
@@ -59,6 +61,13 @@ public class PlayerController : MonoBehaviour
         else if (state == State.falling)
         {
             if (isGrounded == true)
+            {
+                state = State.idle;
+            }
+        }
+        else if (state == State.hurt)
+        {
+            if (Mathf.Abs(rb.velocity.x) < .1f)
             {
                 state = State.idle;
             }
@@ -108,6 +117,33 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
             score += 10;
             scoretext.text = "Score: " + score;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (state == State.falling)
+            {
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                if(collision.gameObject.transform.position.x > transform.position.x)
+                {
+                    state = State.hurt;
+                    //Enemy to my right, therefore I should be hurt and move left
+                    rb.velocity = new Vector2(-10, rb.velocity.y);
+                }
+                else
+                {
+                    state = State.hurt;
+                    //Enemy to my left, therefore I should be hurt and move right
+                    rb.velocity = new Vector2(10, rb.velocity.y);
+                }
+            }
+            
         }
     }
 }
