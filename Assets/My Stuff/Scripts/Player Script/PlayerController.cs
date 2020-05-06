@@ -21,9 +21,9 @@ public class PlayerController : MonoBehaviour
 
     //Grund check 
     private bool isGrounded = true;
-    public Transform groundCheck;
-    public float checkRadius;
-    public LayerMask whatIsGround;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float checkRadius;
+    [SerializeField] private LayerMask whatIsGround;
 
     // Start is called before the first frame update
     void Start()
@@ -35,18 +35,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Jump();  
-    }
-
-    private void FixedUpdate()
-    {
         if (state != State.hurt)
         {
             Move();
         }
         StateManager();
-        anima.SetInteger("State", (int)state); 
-          
+        anima.SetInteger("State", (int)state);
+    }
+
+    private void FixedUpdate()
+    {
+  
     }
 
     private void StateManager()
@@ -97,19 +96,17 @@ public class PlayerController : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
-        rb.velocity = new Vector2(movment * moveSpeed, rb.velocity.y);
-
-    }
-
-    private void Jump()
-    {
         if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpForce;
             state = State.jumping;
         }
+
+        rb.velocity = new Vector2(movment * moveSpeed, rb.velocity.y);
+
     }
 
+    //Collect collectable
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Collectable")
@@ -120,13 +117,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //kill enemy or get hurt
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            
             if (state == State.falling)
             {
-                Destroy(collision.gameObject);
+                enemy.JumpedOn();
             }
             else
             {
