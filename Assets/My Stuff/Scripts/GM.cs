@@ -6,11 +6,29 @@ using TMPro;
 
 public class GM : MonoBehaviour
 {
+    public static bool isPaused = false;
+
     [SerializeField] private TextMeshProUGUI stageName;
+    [SerializeField] private GameObject pauseMenuUI;
 
     private void Start()
     {
         DisplayStage();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
     }
 
     public void RetryStage()
@@ -21,5 +39,19 @@ public class GM : MonoBehaviour
     private void DisplayStage()
     {
         stageName.text = SceneManager.GetActiveScene().name;
+    }
+
+    public void Resume()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
+
+    void Pause()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
     }
 }
