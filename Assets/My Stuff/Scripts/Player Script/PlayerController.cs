@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoretext;
+    [SerializeField] private TextMeshProUGUI winText;
     [SerializeField] private float hurtVelocity = 10f;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
@@ -114,6 +115,10 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
             score += 10;
             scoretext.text = "Score: " + score;
+        }
+        if (collision.tag == "Gem")
+        {
+            winText.gameObject.SetActive(true);
         }
     }
 
