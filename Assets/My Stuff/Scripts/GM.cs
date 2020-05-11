@@ -48,6 +48,11 @@ public class GM : MonoBehaviour
         isPaused = false;
     }
 
+    public void ReturnToTitle()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     void Pause()
     {
         pauseMenuUI.SetActive(true);
