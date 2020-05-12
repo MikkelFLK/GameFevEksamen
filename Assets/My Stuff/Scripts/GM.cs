@@ -41,6 +41,11 @@ public class GM : MonoBehaviour
         stageName.text = SceneManager.GetActiveScene().name;
     }
 
+    public void NextStage()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
