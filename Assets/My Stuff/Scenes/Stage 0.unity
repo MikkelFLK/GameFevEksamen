@@ -17769,13 +17769,28 @@ PrefabInstance:
     - target: {fileID: 3037846092636725957, guid: 4ce2998e107e4d244a91742485c2387a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NextStage
+      value: ReturnToStageSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774648017156406824, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 90.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774648017156406824, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 57.76
       objectReference: {fileID: 0}
     - target: {fileID: 4774648017156406825, guid: 4ce2998e107e4d244a91742485c2387a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1890210754}
+    - target: {fileID: 4774648017156406825, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToStageSelect
+      objectReference: {fileID: 0}
     - target: {fileID: 4774648017272199186, guid: 4ce2998e107e4d244a91742485c2387a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17886,6 +17901,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 4774648017345516870, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774648017537963308, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_text
+      value: Quit to Stage select
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774648017537963308, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774648017537963308, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774648017537963308, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774648017537963308, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774648017537963308, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774648017562129907, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_Name
+      value: Retry
+      objectReference: {fileID: 0}
     - target: {fileID: 4774648017562129917, guid: 4ce2998e107e4d244a91742485c2387a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -17906,6 +17961,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1890210754}
+    - target: {fileID: 4787879541789011219, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_Name
+      value: StageSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329065181053082754, guid: 4ce2998e107e4d244a91742485c2387a,
+        type: 3}
+      propertyPath: m_Name
+      value: StageSelect
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ce2998e107e4d244a91742485c2387a, type: 3}
 --- !u!1001 &7633400745796333630

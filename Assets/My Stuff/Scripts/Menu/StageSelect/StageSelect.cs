@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TilteMenu : MonoBehaviour
-{
-    public int playerScore;
 
-    private void Start()
+public class StageSelect : MonoBehaviour
+{
+    public void Stage0()
     {
-        
+        SceneManager.LoadScene(2);
     }
 
-    public void StartGame()
+    public void Stage1()
     {
-        SceneManager.LoadScene(1);
-
-        PlayerPrefs.SetInt("PlayerCurrentScore", playerScore);
+        SceneManager.LoadScene(3);
     }
 
     public void Quit()

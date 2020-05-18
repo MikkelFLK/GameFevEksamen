@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private float movment;
     private Rigidbody2D rb;
     private Animator anima;
-    private int score = 0;
+    private int score;
     
     private enum State { idle, running, jumping, falling, hurt};
     private State state = State.idle;
@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anima = GetComponent<Animator>();
+        score = PlayerPrefs.GetInt("PlayerCurrentScore");
+        scoretext.text = "Score: " + score;
     }
 
     // Update is called once per frame
@@ -119,6 +121,7 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "Gem")
         {
             winText.gameObject.SetActive(true);
+            PlayerPrefs.SetInt("PlayerCurrentScore", score);
         }
     }
 
