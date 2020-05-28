@@ -9,7 +9,7 @@ public class TilteMenu : MonoBehaviour
 
     private void Start()
     {
-        
+        PlayerPrefs.DeleteAll();
     }
 
     public void StartGame()

@@ -114,12 +114,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Collectable")
         {
+            FindObjectOfType<AudioManager>().Play("CherryPick");
             Destroy(collision.gameObject);
             score += 10;
             scoretext.text = "Score: " + score;
         }
         if (collision.tag == "Gem")
         {
+            FindObjectOfType<AudioManager>().Play("GemCollect");
             winText.gameObject.SetActive(true);
             PlayerPrefs.SetInt("PlayerCurrentScore", score);
         }
@@ -134,6 +136,7 @@ public class PlayerController : MonoBehaviour
             
             if (state == State.falling)
             {
+                FindObjectOfType<AudioManager>().Play("FrogDeath");
                 enemy.JumpedOn();
             }
             else
