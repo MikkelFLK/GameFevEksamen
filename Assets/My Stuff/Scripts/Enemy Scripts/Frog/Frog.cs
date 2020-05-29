@@ -9,9 +9,7 @@ public class Frog : Enemy
     [SerializeField] private float jumpLenght = 10f;
     [SerializeField] private float jumpHeight = 15f;
     [SerializeField] private LayerMask ground;
-    //[SerializeField] private AIState aiState = AIState.idel;
 
-    //private enum AIState { idel, jumping, falling, death }
     private bool facingLeft = true;
     private Rigidbody2D rb;
     private Collider2D coll;
@@ -65,6 +63,7 @@ public class Frog : Enemy
         }
         else
         {
+            //Test to see if we are beyond rightcap
             if (transform.position.x < rightCap)
             {
                 if (transform.localScale.x != -1)

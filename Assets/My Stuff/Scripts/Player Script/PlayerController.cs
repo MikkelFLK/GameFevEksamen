@@ -46,11 +46,6 @@ public class PlayerController : MonoBehaviour
         anima.SetInteger("State", (int)state);
     }
 
-    private void FixedUpdate()
-    {
-  
-    }
-
     private void StateManager()
     {
         if (state == State.jumping)
